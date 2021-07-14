@@ -13,6 +13,8 @@ Welcome to the Robot-Arm-InterFace wiki! يحتوي هذا الملف على
 
 6.- صور مستخدمه لتصميم الواجهه
 
+7.-chat bot تم اضافة متحدث 
+
 **تم تنفيذ هذا المشروع بالاستعانة بطيف احمد العتيبي **
 
 "https://github.com/TaifAhmedAlotebi"
