@@ -1,0 +1,331 @@
+{
+  "intents": [
+    {
+      "intent": "General_Human_or_Bot",
+      "examples": [
+        {
+          "text": "Am I chatting with a human?"
+        },
+        {
+          "text": "Am I talking to a Bot?"
+        },
+        {
+          "text": "Am I talking to a person or am I talking to an AI?"
+        },
+        {
+          "text": "Am I talking to Watson?"
+        },
+        {
+          "text": "Are you a human or a bot?"
+        },
+        {
+          "text": "Are you a robot?"
+        },
+        {
+          "text": "Are you even real?"
+        },
+        {
+          "text": "Are you human?"
+        },
+        {
+          "text": "Are you real?"
+        },
+        {
+          "text": "How can you prove you are a human?"
+        },
+        {
+          "text": "Is this a computer?"
+        },
+        {
+          "text": "Tell me, are you a human or no?"
+        }
+      ],
+      "description": "Ask if speaking to a human or a bot."
+    },
+    {
+      "intent": "General_Jokes",
+      "examples": [
+        {
+          "text": "Another joke"
+        },
+        {
+          "text": "Are there jokes?"
+        },
+        {
+          "text": "Can you tell a joke?"
+        },
+        {
+          "text": "Can you tell me a joke?"
+        },
+        {
+          "text": "Do you have a joke?"
+        },
+        {
+          "text": "Do you have humor?"
+        },
+        {
+          "text": "Do you like fun?"
+        },
+        {
+          "text": "Do you like humor?"
+        },
+        {
+          "text": "I am getting bored"
+        },
+        {
+          "text": "I'm bored"
+        },
+        {
+          "text": "I want a joke"
+        },
+        {
+          "text": "One more joke"
+        },
+        {
+          "text": "Surprise me with something hilarious"
+        },
+        {
+          "text": "Tell me a joke"
+        },
+        {
+          "text": "Tell me something funny"
+        },
+        {
+          "text": "What do you do for fun?"
+        },
+        {
+          "text": "What is your favorite joke?"
+        }
+      ],
+      "description": "Request a joke."
+    },
+    {
+      "intent": "help",
+      "examples": [
+        {
+          "text": "can you help me ?"
+        },
+        {
+          "text": "help me please"
+        },
+        {
+          "text": "i need your help"
+        },
+        {
+          "text": "i want a help"
+        },
+        {
+          "text": "i want a service"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "name",
+      "examples": [
+        {
+          "text": "are you have a name"
+        },
+        {
+          "text": "can you tell me your name"
+        },
+        {
+          "text": "what your name ?"
+        },
+        {
+          "text": "your name"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "welcom",
+      "examples": [
+        {
+          "text": "hi"
+        },
+        {
+          "text": "holle"
+        },
+        {
+          "text": "i'm here"
+        },
+        {
+          "text": "welcom"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    },
+    "from-sample": true
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "name ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "my name is ROBO"
+              },
+              {
+                "text": "I'M ROBO "
+              },
+              {
+                "text": "i have name is ROBO"
+              },
+              {
+                "text": "ROBO"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#name",
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "human or robot ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "i'm robot "
+              },
+              {
+                "text": "i'm robot my name is ROBO"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Human_or_Bot",
+      "dialog_node": "node_1_1626174060374",
+      "previous_sibling": "node_2_1626173939817"
+    },
+    {
+      "type": "standard",
+      "title": "jokes",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "i don't like jokes "
+              },
+              {
+                "text": "not funny"
+              },
+              {
+                "text": "i'm not clown "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Jokes",
+      "dialog_node": "node_2_1626173939817",
+      "previous_sibling": "node_6_1626173765759"
+    },
+    {
+      "type": "standard",
+      "title": "help",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "it is my pleasure"
+              },
+              {
+                "text": "of course "
+              },
+              {
+                "text": "yes , ask me please "
+              },
+              {
+                "text": "that's why i'm here"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#help",
+      "dialog_node": "node_6_1626173765759"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              },
+              {
+                "text": "hi "
+              },
+              {
+                "text": "hello, there"
+              },
+              {
+                "text": "welcom"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#welcom",
+      "dialog_node": "Welcome",
+      "previous_sibling": "node_1_1626174060374"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "robot",
+  "language": "en",
+  "description": ""
+}
